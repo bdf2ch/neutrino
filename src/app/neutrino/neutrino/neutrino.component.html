@@ -1,0 +1,39 @@
+<div id="app-menu">
+  <div id="app-menu-current-user">
+    <div class="photo"></div>
+    <div class="name">Kozlodoy Ivashkin</div>
+    <div class="position">Product manager</div>
+  </div>
+  <div id="app-menu-items">
+    <a href="" class="menu-item active">
+      <i class="fa fa-home"></i>
+      Dashboard
+    </a>
+    <a href="" class="menu-item">
+      <i class="fa fa-star"></i>
+      Sessions
+    </a>
+    <a href="" class="menu-item">
+      <i class="fa fa-user"></i>
+      Users
+    </a>
+  </div>
+</div>
+
+<div id="app-content-wrapper">
+  <div id="app-content-wrapper-header">
+    <div class="combined-input margin-right-10">
+      <i class="fa fa-search"></i>
+      <input type="text" name="" id="" placeholder="sdaasdsadsadsad">
+      <i class="fa fa-spin fa-spinner"></i>
+      <i class="fa fa-times clickable" title="Очистить поиск"></i>
+    </div>
+    <i class="fa fa-gears control"></i>
+    <i class="fa fa-plus control"></i>
+    <i class="fa fa-star control"></i>
+    <i class="fa fa-calendar control"></i>
+  </div>
+  <div id="app-content-wrapper-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

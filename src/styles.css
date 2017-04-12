@@ -1,1 +1,155 @@
-/* You can add global styles to this file, and also import other style files */
+/***
+* Fonts
+***/
+@font-face {
+  font-family: "Roboto Regular";
+  src: url("assets/fonts/Roboto-Regular.ttf");
+}
+@font-face {
+  font-family: "Roboto Bold";
+  src: url("assets/fonts/Roboto-Bold.ttf");
+}
+@font-face {
+  font-family: "Roboto Italic";
+  src: url("assets/fonts/Roboto-Italic.ttf");
+}
+/**
+* Basic
+**/
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  font-family: "Roboto Regular";
+}
+/**
+* Margins
+**/
+.margin-left-5 {
+  margin-left: 5px;
+}
+.margin-left-10 {
+  margin-left: 10px;
+}
+.margin-right-5 {
+  margin-right: 5px;
+}
+.margin-right-10 {
+  margin-right: 10px;
+}
+.margin-top-5 {
+  margin-top: 5px;
+}
+.margin-top-10 {
+  margin-top: 10px;
+}
+.margin-bottom-5 {
+  margin-bottom: 5px;
+}
+.margin-bottom-10 {
+  margin-bottom: 10px;
+}
+/**
+* Padding
+**/
+.padding-10 {
+  padding: 10px;
+}
+/**
+* Input fields
+**/
+input[type="text"] {
+  display: block;
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 17px;
+  color: #263238;
+  background: white;
+  border: 0px solid;
+  border-radius: 4px;
+  outline: none;
+  /* Firefox 19+ */
+  /* Firefox 18- */
+}
+input[type="text"]::-webkit-input-placeholder {
+  color: #CFD8DC;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+input[type="text"]::-moz-placeholder {
+  color: #CFD8DC;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+input[type="text"]:-moz-placeholder {
+  color: #CFD8DC;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+input[type="text"]:-ms-input-placeholder {
+  color: #CFD8DC;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+input[type="text"].big {
+  height: 45px;
+}
+input[type="text"].small {
+  height: 30px;
+  font-size: 15px;
+}
+.combined-input {
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  box-sizing: border-box;
+  background: white;
+  border-radius: 4px;
+}
+.combined-input input {
+  display: flex;
+}
+.combined-input input:not(:first-child) {
+  padding-left: 5px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+.combined-input input:not(:last-child) {
+  padding-right: 5px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.combined-input .fa {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: stretch;
+  flex: auto;
+  align-items: center;
+  width: 30px;
+  font-size: 17px;
+  color: #B0BEC5;
+}
+.combined-input .fa:first-child {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.combined-input .fa:last-child {
+  border-top-right-radius: 4px !important;
+  border-bottom-right-radius: 4px;
+}
+.combined-input .fa.clickable {
+  cursor: pointer;
+}
+.combined-input .fa.clickable:hover {
+  color: #455A64;
+}
