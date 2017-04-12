@@ -78,6 +78,23 @@
   background: #ECEFF1;
   border-bottom: 1px solid #CFD8DC;
 }
+#app-content-wrapper #app-content-wrapper-header #app-content-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  height: 55px;
+}
+#app-content-wrapper #app-content-wrapper-header #app-content-title .title {
+  height: 40px;
+  margin-right: 20px;
+  padding-right: 20px;
+  font-family: 'Roboto Bold';
+  font-size: 20px;
+  line-height: 40px;
+  color: #607D8B;
+  border-right: 1px solid #CFD8DC;
+}
 #app-content-wrapper #app-content-wrapper-header .control {
   display: flex;
   flex-direction: column;

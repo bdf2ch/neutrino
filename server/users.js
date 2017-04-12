@@ -1,0 +1,7 @@
+var users = {
+
+  getAlUsers: function () {
+
+  }
+
+};

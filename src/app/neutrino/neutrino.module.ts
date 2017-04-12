@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SessionManagerService } from './session-manager.service';
 import { NeutrinoComponent } from './neutrino/neutrino.component';
+import { UserListComponent } from './users/user-list/user-list.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   imports: [
@@ -10,7 +12,9 @@ import { NeutrinoComponent } from './neutrino/neutrino.component';
     RouterModule
   ],
   declarations: [
-    NeutrinoComponent
+    NeutrinoComponent,
+    UserListComponent,
+    DashboardComponent
   ],
   providers: [
     SessionManagerService

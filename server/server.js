@@ -3,13 +3,13 @@ var pg = require('pg');
 var app = express();
 
 var config = {
-  user: 'docuser', //env var: PGUSER
-  database: 'phone', //env var: PGDATABASE
-  password: 'docasu', //env var: PGPASSWORD
-  host: '10.50.0.242', // Server hosting the postgres database
-  port: 5432, //env var: PGPORT
-  max: 10, // max number of clients in the pool
-  idleTimeoutMillis: 30000 // how long a client is allowed to remain idle before being closed
+  user: 'docuser',
+  database: 'phone',
+  password: 'docasu',
+  host: '10.50.0.242',
+  port: 5432,
+  max: 10,
+  idleTimeoutMillis: 30000
 };
 
 
