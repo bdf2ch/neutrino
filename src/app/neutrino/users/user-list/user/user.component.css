@@ -1,0 +1,41 @@
+.user {
+  float: left;
+  width: 220px;
+  height: 280px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+  background: white;
+  border-radius: 4px;
+}
+.user .user-photo {
+  width: 150px;
+  height: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background: lightgray;
+}
+.user .user-name {
+  margin-bottom: 5px;
+  font-family: "Roboto Bold";
+  font-size: 15px;
+  line-height: 15px;
+  text-align: center;
+}
+.user .user-position {
+  display: -webkit-box;
+  overflow: hidden;
+  height: 28px;
+  font-family: "Roboto Regular";
+  font-size: 14px;
+  line-height: 14px;
+  text-align: center;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  color: #78909C;
+}

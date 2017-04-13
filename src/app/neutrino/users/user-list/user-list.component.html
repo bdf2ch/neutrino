@@ -1,18 +1,47 @@
 <div id="app-content-wrapper-header">
   <div id="app-content-title">
-    <span class="title">Users</span>
+    <span class="title">Пользователи</span>
   </div>
   <div class="combined-input margin-right-10">
     <i class="fa fa-search"></i>
-    <input type="text" name="" id="" placeholder="sdaasdsadsadsad">
-    <i class="fa fa-spin fa-spinner"></i>
-    <i class="fa fa-times clickable" title="Очистить поиск"></i>
+    <input type="text" name="" id="" placeholder="Введите имя пользователя или e-mail" #search [(ngModel)]="users.search" (keyup)="searchUsers(search.value)">
+    <i class="fa fa-spin fa-spinner" *ngIf="users.isLoading() === true"></i>
+    <i class="fa fa-times clickable" title="Очистить поиск" *ngIf="users.search !== ''" (click)="clearSearch()"></i>
   </div>
-  <i class="fa fa-gears control"></i>
-  <i class="fa fa-plus control"></i>
-  <i class="fa fa-star control"></i>
-  <i class="fa fa-calendar control"></i>
+  <i class="fa fa-plus control" title="Добавить пользователя"></i>
 </div>
-<div id="app-content-wrapper-content">
-  <router-outlet></router-outlet>
+<div id="app-content-wrapper-content" class="padding-20">
+
+
+  <!--
+  <table class="user-list" cellpadding="0" cellspacing="0">
+    <thead>
+    <tr>
+      <th></th>
+      <th>Имя</th>
+      <th>E-mail</th>
+      <th>Табельный №</th>
+      <th>Стр. подразделение</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users.getAllUsers()">
+        <td class="user-photo">
+          <div class="photo"></div>
+        </td>
+        <td class="user-name">
+          <div class="fio">{{ user.fio }}</div>
+          <div class="position">{{ user.position }}</div>
+        </td>
+        <td class="user-email"><a href="mailto: test@kolenero.ru">test@kolenergo.ru</a></td>
+        <td class="user-tab-id">{{ user.tabId }}</td>
+        <td class="user-division"></td>
+      </tr>
+    </tbody>
+  </table>
+  -->
+
+  <user *ngFor="let user of users.getAllUsers()" [user]="user"></user>
+
+  <button class="width-100" *ngIf="users.getTotalUsersCount() > users.getAllUsers().length && users.isInSearchMode() === false" [disabled]="users.isLoading() === true" (click)="users.fetchPortionOfUsers().subscribe()">Загрузить еще</button>
 </div>

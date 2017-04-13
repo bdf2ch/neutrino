@@ -7,6 +7,7 @@ import { NeutrinoComponent } from "../neutrino/neutrino/neutrino.component";
 import { NeutrinoModule } from "../neutrino/neutrino.module";
 import { UserListComponent } from "../neutrino/users/user-list/user-list.component";
 import { DashboardComponent } from "../neutrino/dashboard/dashboard.component";
+import { UserListResolveGuardService } from "../neutrino/users/user-list/resolve-guard.service";
 
 
 const routes: Routes = [
@@ -19,12 +20,24 @@ const routes: Routes = [
     children: [
       {
         path: '',
+        redirectTo: 'dashboard',
+        pathMatch: 'full'
+      },
+      {
+        path: 'dashboard',
         component: DashboardComponent
       },
       {
         path: 'users',
-        component: UserListComponent
-      }
+        component: UserListComponent,
+        //resolve: {
+        //  users: UserListResolveGuardService
+        //}
+      },
+      {
+        path: '**',
+        component: DashboardComponent
+      },
     ]
   }
 ];

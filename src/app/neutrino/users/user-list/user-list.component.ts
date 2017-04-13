@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRouteSnapshot } from "@angular/router";
+import { User } from "../../../models/user";
+import { UserManagerService } from "../../user-manager.service";
 
 @Component({
   selector: 'app-user-list',
@@ -7,9 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private users: UserManagerService) { }
 
   ngOnInit() {
-  }
+    if (this.users.getAllUsers().length === 0) {
+      this.users.fetchPortionOfUsers().subscribe();
+    }
+  };
+
+
+  searchUsers(value: string): void {
+    if (value.length >= 3) {
+      this.users.searchUsers().subscribe(() => {
+
+      });
+    }
+  };
+
+
+  clearSearch(): void {
+    this.users.clearSearch();
+  };
 
 }

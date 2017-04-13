@@ -5,7 +5,7 @@
     <div class="position">Product manager</div>
   </div>
   <div id="app-menu-items">
-    <a href="" class="menu-item active">
+    <a href="" class="menu-item" routerLink="/dashboard" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
       <i class="fa fa-home"></i>
       Dashboard
     </a>
@@ -13,7 +13,7 @@
       <i class="fa fa-star"></i>
       Sessions
     </a>
-    <a href="" class="menu-item">
+    <a class="menu-item" routerLink="/users" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
       <i class="fa fa-user"></i>
       Users
     </a>

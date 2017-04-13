@@ -24,6 +24,18 @@ body {
   font-family: "Roboto Regular";
 }
 /**
+* Grid
+**/
+.width-5 {
+  width: 5%;
+}
+.width-10 {
+  width: 10%;
+}
+.width-100 {
+  width: 100%;
+}
+/**
 * Margins
 **/
 .margin-left-5 {
@@ -53,8 +65,17 @@ body {
 /**
 * Padding
 **/
+.padding-5 {
+  padding: 5px;
+}
 .padding-10 {
   padding: 10px;
+}
+.padding-20 {
+  padding: 20px;
+}
+.padding-30 {
+  padding: 30px;
 }
 /**
 * Input fields
@@ -152,4 +173,13 @@ input[type="text"].small {
 }
 .combined-input .fa.clickable:hover {
   color: #455A64;
+}
+/**
+* Buttons
+**/
+button {
+  heigth: 40px;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 4px;
 }
