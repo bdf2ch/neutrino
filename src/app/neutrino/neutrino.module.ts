@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { UiKitModule } from '@bdf2ch/angular-ui-kit';
 import { SessionManagerService } from './session-manager.service';
 import { NeutrinoComponent } from './neutrino/neutrino.component';
 import { UserListComponent } from './users/user-list/user-list.component';
@@ -14,7 +15,8 @@ import { UserComponent } from './users/user-list/user/user.component';
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    FormsModule,
+    UiKitModule
   ],
   declarations: [
     NeutrinoComponent,

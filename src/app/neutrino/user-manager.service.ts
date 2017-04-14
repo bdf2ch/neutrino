@@ -48,9 +48,11 @@ export class UserManagerService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
     let parameters = { action: 'getPortionOfUsers', data: { start: this.start, limit: this.limit }};
+    this.loading = true;
 
     return this.http.post('http://127.0.0.1:4444/api', parameters, options)
       .map((response: Response) => {
+      this.loading = false;
         let body = response.json();
         this.total = body.total;
         let length = body.users.length;
@@ -96,6 +98,7 @@ export class UserManagerService {
   clearSearch(): void {
     this.users = [];
     this.fetchPortionOfUsers().subscribe(() => {
+      this.searchMode = false;
       this.search = '';
     });
   };

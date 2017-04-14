@@ -87,7 +87,7 @@ input[type="text"] {
   padding: 10px;
   box-sizing: border-box;
   font-size: 17px;
-  color: #263238;
+  color: #90A4AE;
   background: white;
   border: 0px solid;
   border-radius: 4px;
@@ -181,5 +181,18 @@ button {
   heigth: 40px;
   padding: 10px;
   box-sizing: border-box;
+  color: white;
+  background: #78909C;
+  border: 0px solid;
   border-radius: 4px;
+  outline: none;
+}
+button:hover {
+  background: #546E7A;
+}
+button.big {
+  height: 45px;
+}
+button[disabled] {
+  background: #B0BEC5;
 }

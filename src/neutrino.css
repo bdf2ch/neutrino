@@ -107,7 +107,6 @@
   font-size: 18px;
   text-align: center;
   color: #78909C;
-  background: #CFD8DC;
   border-radius: 4px;
   cursor: pointer;
 }
@@ -116,7 +115,6 @@
 }
 #app-content-wrapper #app-content-wrapper-header .control:hover {
   color: #546E7A;
-  background: #B0BEC5;
 }
 #app-content-wrapper #app-content-wrapper-content {
   overflow: auto;

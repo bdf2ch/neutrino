@@ -43,5 +43,5 @@
 
   <user *ngFor="let user of users.getAllUsers()" [user]="user"></user>
 
-  <button class="width-100" *ngIf="users.getTotalUsersCount() > users.getAllUsers().length && users.isInSearchMode() === false" [disabled]="users.isLoading() === true" (click)="users.fetchPortionOfUsers().subscribe()">Загрузить еще</button>
+  <button class="big width-100" *ngIf="users.getTotalUsersCount() > users.getAllUsers().length && users.isInSearchMode() === false" [disabled]="users.isLoading() === true" (click)="users.fetchPortionOfUsers().subscribe()">Загрузить еще</button>
 </div>

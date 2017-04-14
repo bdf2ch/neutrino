@@ -1,11 +1,16 @@
 @input-height-regular: 40px;
 @input-height-small: 30px;
 @input-height-big: 45px;
-@input-text-color: #263238;
+@input-text-color: #90A4AE;
 @input-background-color-regular: white;
 @combined-input-icon-width: 30px;
 @combined-input-icon-color: #B0BEC5;
 @combined-input-icon-color-hover: #455A64;
+
+@button-text-color-regular: white;
+@button-background-color-regular: #78909C;
+@button-background-color-regular-hover: #546E7A;
+@button-background-color-regular-disabled: #B0BEC5;
 
 
 /***
@@ -193,7 +198,22 @@ button {
   heigth: @input-height-regular;
   padding: 10px;
   box-sizing: border-box;
+  color: @button-text-color-regular;
+  background: @button-background-color-regular;
+  border: 0px solid;
   border-radius: 4px;
+  outline: none;
+  &:hover {
+    background: @button-background-color-regular-hover;
+  }
+
+  &.big {
+    height: @input-height-big;
+  }
+
+  &[disabled] {
+    background: @button-background-color-regular-disabled;
+  }
 }
 
 
