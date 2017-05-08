@@ -7,10 +7,14 @@
 @app-content-wrapper-background-color: #F3F3F8;
 @app-content-wrapper-header-height: 60px;
 @app-content-wrapper-header-background-color: #ECEFF1;
+@app-content-wrapper-header-title-color: #607D8B;
+@app-content-wrapper-header-title-color-secondary: #B0BEC5;
+@app-content-wrapper-header-separator-color: #CFD8DC;
 @app-content-wrapper-header-control-width: 40px;
 @app-content-wrapper-header-control-color: #78909C;
 @app-content-wrapper-header-control-color-hover: #546E7A;
-
+@app-content-wrapper-content-sidebar-width: 300px;
+@app-content-wrapper-content-sidebar-background-color: #E8EAF6;
 
 #app-menu {
   position: absolute;
@@ -108,15 +112,25 @@
       height: @app-content-wrapper-header-height;
       .title {
         height: 40px;
-        margin-right: 20px;
-        padding-right: 20px;
+        //margin-right: 20px;
+        //padding-right: 20px;
         font-family: 'Roboto Bold';
         font-size: 20px;
         line-height: 40px;
-        color: #607D8B;
-        border-right: 1px solid #CFD8DC;
-
+        color: @app-content-wrapper-header-title-color;
+        //border-right: 1px solid #CFD8DC;
+          &.secondary {
+            color: @app-content-wrapper-header-title-color-secondary;
+          }
       }
+    }
+
+    .separator {
+      display: inline-block;
+      width: 20px;
+      height: @app-content-wrapper-header-height - 20px;
+      margin-left: 20px;
+      border-left: 1px solid @app-content-wrapper-header-separator-color;
     }
 
     .control {
@@ -152,4 +166,35 @@
     right: 0px;
     bottom: 0px;
   }
+}
+
+
+.content-data {
+  overflow: auto;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: @app-content-wrapper-content-sidebar-width;
+  bottom: 0px;
+  box-sizing: border-box;
+}
+
+.content-sidebar {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  width: @app-content-wrapper-content-sidebar-width;
+  box-sizing: border-box;
+  background: @app-content-wrapper-content-sidebar-background-color;
+}
+
+
+.form-part-title {
+  padding-bottom: 7px;
+  font-family: "Roboto Bold";
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #B0BEC5;
+  border-bottom: 1px dotted #B0BEC5;
 }

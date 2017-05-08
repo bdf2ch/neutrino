@@ -58,10 +58,35 @@ export class UserManagerService {
         let length = body.users.length;
         for (let i = 0; i < length; i++) {
           let user = new User(body.users[i]);
+          user._model.backup.setup(['divisionId', 'name', 'fname', 'surname', 'position', 'email']);
           this.users.push(user);
           this.start++;
         }
         return this.users;
+      })
+      .take(1);
+  };
+
+
+  /**
+   * Fetches user by id from server
+   * @param id {number} - user id
+   * @returns {Observable<User>}
+   */
+  fetchUserById(id: number): Observable<User> {
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    let parameters = { action: 'getUserById', data: { userId: id }};
+    this.loading = true;
+
+    return this.http.post('http://127.0.0.1:4444/api', parameters, options)
+      .map((response: Response) => {
+        this.loading = false;
+        let body = response.json();
+        let user = new User(body);
+        user._model.backup.setup(['divisionId', 'name', 'fname', 'surname', 'position', 'email']);
+        console.log(user);
+        return user;
       })
       .take(1);
   };
@@ -110,6 +135,21 @@ export class UserManagerService {
    */
   getAllUsers(): User[] {
     return this.users;
+  };
+
+
+  /**
+   * Returns user by its id
+   * @param id {number} - user id
+   * @returns {User|null}
+   */
+  getUserById(id: number): User|null {
+    let length = this.users.length;
+    for (let i = 0; i < length; i++) {
+      if (this.users[i].id === id)
+        return this.users[i];
+    }
+    return null;
   };
 
 

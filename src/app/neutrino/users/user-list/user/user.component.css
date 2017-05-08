@@ -51,7 +51,7 @@
 }
 .user .user-contacts .email {
   overflow: hidden;
-  font-size: 13px;
+  font-size: 12px;
   text-overflow: ellipsis;
   white-space: nowrap;
 }

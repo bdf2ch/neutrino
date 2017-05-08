@@ -1,3 +1,6 @@
+var postgres = require('./postgres');
+
+
 var users = {
 
   getAllUsers: function () {
@@ -5,6 +8,16 @@ var users = {
       text: 'SELECT get_users()',
       func: 'get_users'
     };
+
+  },
+
+
+  getUserById: function (parameters) {
+    return {
+      text: 'SELECT get_user_by_id($1)',
+      values: [parameters['userId']],
+      func: 'get_user_by_id'
+    }
   },
 
 
@@ -23,6 +36,14 @@ var users = {
       values: [parameters['search']],
       func: 'search_users'
     };
+  },
+
+  uploadUserPhoto: function (parameters) {
+    return {
+      text: 'set_user_photo($1)',
+      values: [parameters['userId']],
+      func: 'set_user_photo'
+    }
   }
 
 };

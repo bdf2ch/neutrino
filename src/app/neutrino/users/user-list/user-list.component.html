@@ -1,6 +1,7 @@
 <div id="app-content-wrapper-header">
   <div id="app-content-title">
     <span class="title">Пользователи</span>
+    <span class="separator"></span>
   </div>
   <div class="combined-input margin-right-10">
     <i class="fa fa-search"></i>
@@ -10,7 +11,7 @@
   </div>
   <i class="fa fa-plus control" title="Добавить пользователя"></i>
 </div>
-<div id="app-content-wrapper-content" class="padding-20">
+<div id="app-content-wrapper-content" class="padding-10">
 
 
   <!--
@@ -41,7 +42,7 @@
   </table>
   -->
 
-  <user *ngFor="let user of users.getAllUsers()" [user]="user"></user>
+  <user *ngFor="let user of users.getAllUsers()" [user]="user" (click)="selectUser(user)"></user>
 
   <button class="big width-100" *ngIf="users.getTotalUsersCount() > users.getAllUsers().length && users.isInSearchMode() === false" [disabled]="users.isLoading() === true" (click)="users.fetchPortionOfUsers().subscribe()">Загрузить еще</button>
 </div>

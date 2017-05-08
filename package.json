@@ -25,6 +25,7 @@
     "body-parser": "^1.17.1",
     "core-js": "^2.4.1",
     "express": "^4.15.2",
+    "express-fileupload": "^0.1.2",
     "font-awesome": "^4.7.0",
     "pg": "^6.1.5",
     "rxjs": "^5.0.1",
@@ -36,7 +37,11 @@
     "@types/jasmine": "2.5.38",
     "@types/node": "^6.0.42",
     "angular-cli": "1.0.0-beta.26",
+    "async": "^2.4.0",
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.4.0",
     "codelyzer": "~2.0.0-beta.1",
+    "exceljs": "^0.4.6",
     "jasmine-core": "2.5.2",
     "jasmine-spec-reporter": "2.5.0",
     "karma": "1.2.0",
@@ -47,6 +52,7 @@
     "protractor": "~4.0.13",
     "ts-node": "1.2.1",
     "tslint": "^4.3.0",
-    "typescript": "~2.0.3"
+    "typescript": "~2.0.3",
+    "xlsx": "^0.9.13"
   }
 }

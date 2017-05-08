@@ -87,13 +87,20 @@
 }
 #app-content-wrapper #app-content-wrapper-header #app-content-title .title {
   height: 40px;
-  margin-right: 20px;
-  padding-right: 20px;
   font-family: 'Roboto Bold';
   font-size: 20px;
   line-height: 40px;
   color: #607D8B;
-  border-right: 1px solid #CFD8DC;
+}
+#app-content-wrapper #app-content-wrapper-header #app-content-title .title.secondary {
+  color: #B0BEC5;
+}
+#app-content-wrapper #app-content-wrapper-header .separator {
+  display: inline-block;
+  width: 20px;
+  height: 40px;
+  margin-left: 20px;
+  border-left: 1px solid #CFD8DC;
 }
 #app-content-wrapper #app-content-wrapper-header .control {
   display: flex;
@@ -123,4 +130,30 @@
   left: 0px;
   right: 0px;
   bottom: 0px;
+}
+.content-data {
+  overflow: auto;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 300px;
+  bottom: 0px;
+  box-sizing: border-box;
+}
+.content-sidebar {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  width: 300px;
+  box-sizing: border-box;
+  background: #E8EAF6;
+}
+.form-part-title {
+  padding-bottom: 7px;
+  font-family: "Roboto Bold";
+  font-size: 16px;
+  text-transform: uppercase;
+  color: #B0BEC5;
+  border-bottom: 1px dotted #B0BEC5;
 }

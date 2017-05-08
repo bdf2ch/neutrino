@@ -1,0 +1,45 @@
+<div id="app-content-wrapper-header">
+  <div id="app-content-title">
+    <span class="title">Структурные подразделения</span>
+    <span class="separator"></span>
+  </div>
+
+  <i class="fa fa-plus control" title="Добавить структурное подразделение" (click)="openNewDivisionModal()"></i>
+  <i class="fa fa-pencil control" title="Редактировать структурное подразделение" *ngIf="selectedDivision !== null"></i>
+</div>
+<div id="app-content-wrapper-content" class="padding-10">
+  <tree id="phonebook-divisions-tree"
+        [expandOnSelect]="true"
+        [collapseOnDeselect]="true"
+        (onSelect)="selectDivision($event)">
+  </tree>
+</div>
+
+
+<modal [id]="'new-division-modal'" [title]="'Новое структурное подразделение'" [width]="400" [footer]="true" (onClose)="closeNewDivisionModal(form)">
+  <div class="modal-content">
+    <form #form="ngForm" (submit)="addDivision()" class="padding-10">
+      <div class="margin-bottom-20">
+        <label for="new-division-title" class="width-100">
+          Наименование
+          <span class="form-error right" *ngIf="title.invalid && title.dirty">Вы не указали наименование</span>
+        </label>
+        <input type="text" name="title" id="new-division-title" class="dark" placeholder="Введите наименование" [(ngModel)]="newDivision.title" #title="ngModel" required>
+      </div>
+      <div class="margin-bottom-10">
+        <label for="new-division-parent">Родительское структурное подразделение</label>
+        <input type="text" name="parent_title" id="new-division-parent" class="dark" placeholder="Родительское структурное подразделение" disabled [value]="newDivisionParentTitle">
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <div class="width-100 padding-10">
+      <div class="width-50 padding-right-5">
+        <input type="submit" class="green width-100" [disabled]="form.invalid" (click)="addDivision()" value="Добавить">
+      </div>
+      <div class="width-50 padding-left-5">
+        <input type="button" class="red width-100" (click)="modals.close()" value="Отмена">
+      </div>
+    </div>
+  </div>
+</modal>

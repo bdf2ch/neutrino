@@ -1,3 +1,6 @@
+import { Model } from "./model";
+
+
 /**
  * User interface
  */
@@ -16,7 +19,7 @@ export interface  IUser {
 /**
  * User class
  */
-export class User {
+export class User extends Model {
   id: number = 0;
   tabId: string = '';
   name: string = '';
@@ -28,6 +31,7 @@ export class User {
   fio: string = '';
 
   constructor (config?: IUser) {
+    super();
     if (config) {
       this.id = config.id;
       this.tabId = config.tab_id ? config.tab_id : '';

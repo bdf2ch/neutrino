@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRouteSnapshot } from "@angular/router";
+import { ActivatedRouteSnapshot, Router } from "@angular/router";
 import { User } from "../../../models/user";
 import { UserManagerService } from "../../user-manager.service";
 
@@ -10,7 +10,8 @@ import { UserManagerService } from "../../user-manager.service";
 })
 export class UserListComponent implements OnInit {
 
-  constructor(private users: UserManagerService) { }
+  constructor(private users: UserManagerService,
+              private router: Router) { }
 
   ngOnInit() {
     if (this.users.getAllUsers().length === 0) {
@@ -30,6 +31,11 @@ export class UserListComponent implements OnInit {
 
   clearSearch(): void {
     this.users.clearSearch();
+  };
+
+
+  selectUser(user: User): void {
+    this.router.navigate(['users', user.id]);
   };
 
 }

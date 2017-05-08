@@ -1,8 +1,11 @@
 var express = require('express');
+var parser = require('body-parser');
+const uploader = require('express-fileupload');
 var pg = require('pg');
 var app = express();
-var bodyParser = require('body-parser');
 var users = require('./users');
+var phonebook = require('./phonebook');
+var db = require('./postgres');
 
 
 var config = {
@@ -15,9 +18,10 @@ var config = {
   idleTimeoutMillis: 30000
 };
 
+
 var pool = new pg.Pool(config);
 pool.on('error', function (err, client) {
-  console.error('idle client error', err.message, err.stack)
+  console.error('idle client error', err.message, err.stack);
 });
 
 
@@ -30,7 +34,8 @@ app
     res.header('Access-Control-Allow-Credentials', true);
     next();
   })
-  .use(bodyParser.json())
+  .use(uploader())
+  .use(parser.json())
   .post('/api', function (request, response, next) {
     console.dir(request.body);
 
@@ -42,14 +47,18 @@ app
       var query;
       switch (request.body.action) {
         case 'getAllUsers': query = users.getAllUsers(); break;
+        case 'getUserById': query = users.getUserById(request.body.data); break;
         case 'getPortionOfUsers': query = users.getPortionOfUsers(request.body.data); break;
         case 'searchUsers': query = users.searchUsers(request.body.data); break;
+        case 'getAllPhoneBookDivisions': query = phonebook.getAllDivisions(); break;
+        case 'addPhoneBookDivision': query = phonebook.addDivision(request.body.data); break;
       }
 
-      client.query({ text: query['text'], values: query['values'] ? query['values'] : [] }, function(err, result) {
+      client.query({text: query['text'], values: query['values'] ? query['values'] : []}, function(err, result) {
         done(err);
         if(err) {
-          return console.error('error running query', err);
+          console.error('error running query', err);
+          return;
         }
         result = result.rows[0][query['func']];
         response.statusCode = 200;
@@ -57,7 +66,6 @@ app
         response.end(JSON.stringify(result));
       });
     });
-
   })
   .listen(4444, function () {
     console.log('Server started at 4444');

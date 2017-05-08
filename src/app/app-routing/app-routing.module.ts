@@ -7,7 +7,9 @@ import { NeutrinoComponent } from "../neutrino/neutrino/neutrino.component";
 import { NeutrinoModule } from "../neutrino/neutrino.module";
 import { UserListComponent } from "../neutrino/users/user-list/user-list.component";
 import { DashboardComponent } from "../neutrino/dashboard/dashboard.component";
-import { UserListResolveGuardService } from "../neutrino/users/user-list/resolve-guard.service";
+import { UserResolveGuardService } from "../neutrino/users/edit-user/resolve-guard.service";
+import { EditUserComponent } from "../neutrino/users/edit-user/edit-user.component";
+import { PhonebookDivisionsComponent } from "../neutrino/phonebook/divisions/divisions.component";
 
 
 const routes: Routes = [
@@ -30,14 +32,22 @@ const routes: Routes = [
       {
         path: 'users',
         component: UserListComponent,
-        //resolve: {
-        //  users: UserListResolveGuardService
-        //}
+      },
+      {
+        path: 'users/:userId',
+        component: EditUserComponent,
+        resolve: {
+          user: UserResolveGuardService
+        }
+      },
+      {
+        path: 'phonebook/divisions',
+        component: PhonebookDivisionsComponent
       },
       {
         path: '**',
         component: DashboardComponent
-      },
+      }
     ]
   }
 ];

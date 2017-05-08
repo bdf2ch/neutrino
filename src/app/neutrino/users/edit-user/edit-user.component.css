@@ -1,0 +1,15 @@
+#user-photo {
+  width: 300px;
+  height: 300px;
+  border: 1px solid lightgray;
+}
+#user-photo.no-photo {
+  background: url('/assets/images/static/no_photo.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: -55px 0px;
+}
+#user-photo-controls {
+  float: left;
+  margin-left: 320px;
+}

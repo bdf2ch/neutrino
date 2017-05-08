@@ -1,0 +1,106 @@
+<!-- HEADER -->
+<div id="app-content-wrapper-header">
+  <div id="app-content-title">
+    <span class="title">Пользователи</span>
+    <span class="separator"></span>
+    <span class="title secondary">{{ title }}</span>
+  </div>
+</div>
+
+
+<!-- CONTENT WRAPPER -->
+<div id="app-content-wrapper-content" class="padding-10">
+
+  <div class="content-data">
+    <!-- Фото -->
+    <form #photo_form="ngForm">
+      <div class="padding-20">
+        <div class="form-part-title margin-bottom-20">Фотография</div>
+        <div class="margin-bottom-10">
+          <div id="user-photo-controls">
+
+            <label for="photo">
+              <input type="file" name="photo" id="photo">
+            </label>
+
+
+            <button *ngIf="user.photo === ''">
+              <i class="fa fa-photo margin-right-10 left"></i>
+              Загрузить фото
+            </button><br>
+            <button *ngIf="user.photo !== ''">
+              <i class="fa fa-photo margin-right-10 left"></i>
+              Заменить фото
+            </button>
+          </div>
+          <div id="user-photo" [ngClass]="{'no-photo': user.photo === ''}"></div>
+        </div>
+      </div>
+    </form>
+
+    <form #form="ngForm">
+      <!-- Личные данные -->
+      <div class="padding-20">
+        <div class="form-part-title margin-bottom-20">Личные данные</div>
+        <div class="margin-bottom-10">
+          <label for="user-name" class="width-100">
+            Имя пользователя
+            <span class="form-error right" *ngIf="name.invalid && name.dirty">Вы не указали имя</span>
+          </label>
+          <input type="text" name="name" id="user-name" class="with-border" placeholder="Введите имя" [(ngModel)]="user.name" (change)="user._model.status.change(true)" #name="ngModel" required>
+        </div>
+        <div class="margin-bottom-10">
+          <label for="user-fname">Отчество пользователя</label>
+          <input type="text" name="fname" id="user-fname" class="with-border" placeholder="Введите отчество" [(ngModel)]="user.fname">
+        </div>
+        <div class="margin-bottom-10">
+          <label for="user-surname" class="width-100">
+            Фамилия пользователя
+            <span class="form-error right" *ngIf="surname.invalid && surname.dirty">Вы не указали фамилию</span>
+          </label>
+          <input type="text" name="surname" id="user-surname" class="with-border" placeholder="Введите фамилию" [(ngModel)]="user.surname" #surname="ngModel" required>
+        </div>
+      </div>
+
+      <!-- Контактные данные -->
+      <div class="padding-20">
+        <div class="form-part-title margin-bottom-20">Контактные данные</div>
+        <div class="margin-bottom-10">
+          <label for="user-email">E-mail пользователя</label>
+          <input type="text" name="email" id="user-email" class="with-border" placeholder="Введите e-mail" [(ngModel)]="user.email">
+        </div>
+      </div>
+
+      <!-- Место работы и должность -->
+      <div class="padding-20">
+        <div class="form-part-title margin-bottom-20">Место работы и должность</div>
+        <div class="margin-bottom-10">
+          <label for="user-position">Должность пользователя</label>
+          <input type="text" name="position" id="user-position" class="with-border" placeholder="Введите должность" [(ngModel)]="user.position">
+        </div>
+        <div class="margin-bottom">
+          <label for="user-division">Структурное подразделение</label>
+          <div id="user-division" class="combined-input with-border">
+            <input type="text" name="division" id="division" placeholder="Выберите структурное подразделение" disabled>
+            <button title="Выбрать структурное подразделение">
+              <i class="fa fa-building"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+  <div class="content-sidebar padding-20">
+    <button class="green width-100 margin-bottom-10" [disabled]="form.form.invalid || !form.form.dirty">
+      <i class="fa fa-save margin-right-10"></i>
+      Сохранить
+    </button>
+    <button class="red width-100" [disabled]="form.form.pristine" (click)="cancel(form)">
+      <i class="fa fa-ban margin-right-10"></i>
+      Отмена
+    </button>
+  </div>
+
+</div>

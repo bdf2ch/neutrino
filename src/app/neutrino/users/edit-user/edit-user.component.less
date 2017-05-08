@@ -1,0 +1,25 @@
+@user-photo-width: 300px;
+
+
+#user-info {
+
+}
+
+
+#user-photo {
+  width: @user-photo-width;
+  height: @user-photo-width;
+  border: 1px solid lightgray;
+
+  &.no-photo {
+    background: url('/assets/images/static/no_photo.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: -55px 0px;
+  }
+}
+
+#user-photo-controls {
+  float: left;
+  margin-left: @user-photo-width + 20px;
+}
