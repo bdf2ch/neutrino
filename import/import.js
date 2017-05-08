@@ -1,4 +1,6 @@
 var pg = require('pg');
+var async = require('async');
+
 if(typeof require !== 'undefined') XLSX = require('xlsx');
 var workbook = XLSX.readFile('ArcticEnergo.xls');
 
@@ -97,3 +99,20 @@ function addContact(userId, divisionId, surname, name, fname, position, email, m
       });
   });
 };
+
+
+
+
+async.eachSeries([0, 1, 2, 3, 4], function(i, callback) {
+  console.log("!"+i);
+  query("SELECT EXTRACT('epoch' FROM alert_time)::integer alert_time, alert_id, alert_lat, alert_lon, alert_str, alert_cc, alert_distance FROM blitz_device_former_alerts WHERE alert_locid = $1", [first.device_locid], function(error_a,rows_a,result_a) {
+    console.log(i+"!");
+    ret.push(i);
+    callback(null);  // null -> no error
+  });
+
+}, function(err) {
+  console.log("-END---"+JSON.stringify(ret));
+  ret.push(first);
+  res.end(JSON.stringify(ret));
+});
