@@ -59,7 +59,7 @@ export class PhonebookService {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
     let parameters = {
-      action: 'editPhoneBookDivisions',
+      action: 'editPhoneBookDivision',
       data: {
         id: division.id,
         parentId: division.parentId,
@@ -67,7 +67,7 @@ export class PhonebookService {
       }
     };
 
-    return this.http.post('127.0.0.1:4444/api', parameters, options)
+    return this.http.post('http://127.0.0.1:4444/api', parameters, options)
       .map((response: Response) => {
         division._model.backup.setup(['parentId', 'title']);
         return division;

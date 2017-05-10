@@ -26,11 +26,20 @@ body {
 /**
 * Grid
 **/
+.row {
+  overflow: auto;
+  display: block;
+  box-sizing: border-box;
+}
 .width-5 {
+  float: left;
   width: 5%;
+  box-sizing: border-box;
 }
 .width-10 {
+  float: left;
   width: 10%;
+  box-sizing: border-box;
 }
 .width-50 {
   float: left;
@@ -263,7 +272,9 @@ input[type="text"].with-shadow {
 /**
 * Buttons
 **/
-button {
+button,
+input[type='button'],
+input[type='submit'] {
   height: 40px;
   padding: 10px;
   box-sizing: border-box;
@@ -274,34 +285,54 @@ button {
   outline: none;
   cursor: pointer;
 }
-button:hover {
+button:hover,
+input[type='button']:hover,
+input[type='submit']:hover {
   background: #546E7A;
 }
-button.big {
+button.big,
+input[type='button'].big,
+input[type='submit'].big {
   height: 45px;
 }
-button[disabled] {
+button[disabled],
+input[type='button'][disabled],
+input[type='submit'][disabled] {
   background: #B0BEC5;
   cursor: default;
 }
-button.green {
+button.green,
+input[type='button'].green,
+input[type='submit'].green {
   background: #4CAF50;
 }
-button.green:hover {
+button.green:hover,
+input[type='button'].green:hover,
+input[type='submit'].green:hover {
   background: #388E3C;
 }
-button.green[disabled] {
+button.green[disabled],
+input[type='button'].green[disabled],
+input[type='submit'].green[disabled] {
   background: #A5D6A7;
 }
-button.red {
+button.red,
+input[type='button'].red,
+input[type='submit'].red {
   background: #f44336;
 }
-button.red:hover {
+button.red:hover,
+input[type='button'].red:hover,
+input[type='submit'].red:hover {
   background: #d32f2f;
 }
-button.red[disabled] {
+button.red[disabled],
+input[type='button'].red[disabled],
+input[type='submit'].red[disabled] {
   background: #e57373;
 }
-button .fa {
+button .fa,
+input[type='button'] .fa,
+input[type='submit'] .fa {
   color: white !important;
 }

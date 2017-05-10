@@ -14,6 +14,14 @@ var phonebook = {
       values: [parameters['parentId'], parameters['title']],
       func: 'add_phonebook_division'
     }
+  },
+
+  editDivision: function (parameters) {
+    return {
+      text: 'select edit_phonebook_division($1, $2, $3)',
+      values: [parameters['id'], parameters['parentId'], parameters['title']],
+      func: 'edit_phonebook_division'
+    }
   }
 
 };

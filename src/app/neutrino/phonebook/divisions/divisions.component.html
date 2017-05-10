@@ -5,7 +5,7 @@
   </div>
 
   <i class="fa fa-plus control" title="Добавить структурное подразделение" (click)="openNewDivisionModal()"></i>
-  <i class="fa fa-pencil control" title="Редактировать структурное подразделение" *ngIf="selectedDivision !== null"></i>
+  <i class="fa fa-pencil control" title="Редактировать структурное подразделение" *ngIf="selectedDivision !== null" (click)="openEditDivisionModal()"></i>
 </div>
 <div id="app-content-wrapper-content" class="padding-10">
   <tree id="phonebook-divisions-tree"
@@ -16,30 +16,55 @@
 </div>
 
 
-<modal [id]="'new-division-modal'" [title]="'Новое структурное подразделение'" [width]="400" [footer]="true" (onClose)="closeNewDivisionModal(form)">
+
+<!-- Модальное окно добавления нового структурного подразделения -->
+<modal [id]="'new-division-modal'" [title]="'Новое структурное подразделение'" [width]="400"  (onClose)="closeNewDivisionModal(form)">
   <div class="modal-content">
-    <form #form="ngForm" (submit)="addDivision()" class="padding-10">
-      <div class="margin-bottom-20">
+    <form #form="ngForm" (submit)="addDivision()" class="row padding-10">
+      <div class="row margin-bottom-20">
         <label for="new-division-title" class="width-100">
           Наименование
           <span class="form-error right" *ngIf="title.invalid && title.dirty">Вы не указали наименование</span>
         </label>
         <input type="text" name="title" id="new-division-title" class="dark" placeholder="Введите наименование" [(ngModel)]="newDivision.title" #title="ngModel" required>
       </div>
-      <div class="margin-bottom-10">
+      <div class="row margin-bottom-20">
         <label for="new-division-parent">Родительское структурное подразделение</label>
         <input type="text" name="parent_title" id="new-division-parent" class="dark" placeholder="Родительское структурное подразделение" disabled [value]="newDivisionParentTitle">
       </div>
+      <div class="row">
+        <div class="width-50 padding-right-5">
+          <input type="submit" class="green width-100" [disabled]="form.invalid" value="Добавить">
+        </div>
+        <div class="width-50 padding-left-5">
+          <input type="button" class="red width-100" (click)="modals.close()" value="Отмена">
+        </div>
+      </div>
     </form>
   </div>
-  <div class="modal-footer">
-    <div class="width-100 padding-10">
-      <div class="width-50 padding-right-5">
-        <input type="submit" class="green width-100" [disabled]="form.invalid" (click)="addDivision()" value="Добавить">
+</modal>
+
+
+
+<!-- Модальное окно редавтирования структурного подразделения -->
+<modal [id]="'edit-division-modal'" [title]="selectedDivision._model.backup.data.title" [width]="400"  (onClose)="closeEditDivisionModal(form)" *ngIf="selectedDivision !== null">
+  <div class="modal-content">
+    <form #form="ngForm" (submit)="editDivision()" class="row padding-10">
+      <div class="row margin-bottom-20">
+        <label for="selected-division-title" class="width-100">
+          Наименование
+          <span class="form-error right" *ngIf="title.invalid && title.dirty">Вы не указали наименование</span>
+        </label>
+        <input type="text" name="title" id="selected-division-title" class="dark" placeholder="Введите наименование" [(ngModel)]="selectedDivision.title" #title="ngModel" required>
       </div>
-      <div class="width-50 padding-left-5">
-        <input type="button" class="red width-100" (click)="modals.close()" value="Отмена">
+      <div class="row">
+        <div class="width-50 padding-right-5">
+          <input type="submit" class="green width-100" [disabled]="form.invalid || form.pristine" value="Сохранить">
+        </div>
+        <div class="width-50 padding-left-5">
+          <input type="button" class="red width-100" (click)="modals.close()" value="Отмена">
+        </div>
       </div>
-    </div>
+    </form>
   </div>
 </modal>

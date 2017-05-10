@@ -17,6 +17,12 @@ export class PhonebookDivisionsComponent implements OnInit {
   newDivisionParentTitle: string = '';
 
 
+  /**
+   * Конструктор
+   * @param phonebook {PhonebookService}
+   * @param trees {TreesService}
+   * @param modals {ModalsService}
+   */
   constructor(private phonebook: PhonebookService,
               private trees: TreeService,
               private modals: ModalService) {
@@ -24,6 +30,10 @@ export class PhonebookDivisionsComponent implements OnInit {
   };
 
 
+  /**
+   * Инициализация компонента
+   * Заполнение дерева структурных подразделений
+   */
   ngOnInit() {
     if (this.phonebook.getAllDivisions().length === 0) {
       this.phonebook.fetchAllDivisions().subscribe((divisions: Division[]) => {
@@ -43,6 +53,10 @@ export class PhonebookDivisionsComponent implements OnInit {
   };
 
 
+  /**
+   * Выбор структурного подразделения
+   * @param item {TreeItem} - элемент иерархического списка
+   */
   selectDivision(item: TreeItem|null): void {
     this.selectedDivision = item !== null ? this.phonebook.getDivisionById(parseInt(item.key)): null;
     if (item !== null) {
@@ -58,17 +72,26 @@ export class PhonebookDivisionsComponent implements OnInit {
   };
 
 
+  /**
+   * Открывает модальное окно добавления структурного подразделения
+   */
   openNewDivisionModal(): void {
     this.modals.open('new-division-modal');
   };
 
 
+  /**
+   * Закрывает модальное окно добавления структурного подразделения
+   * @param form {ngForm} - форма добавления структурного подразделдения
+   */
   closeNewDivisionModal(form: any): void {
-    //this.newDivision._model.backup.restore();
     form.reset();
   };
 
 
+  /**
+   * Добавляет структурное подразделение
+   */
   addDivision(): void {
     this.phonebook.addDivision(this.newDivision).subscribe((division: Division) => {
       let tree = this.trees.getById('phonebook-divisions-tree');
@@ -78,6 +101,37 @@ export class PhonebookDivisionsComponent implements OnInit {
         title: division.title,
         isRoot: division.parentId === 0 ? true : false
       });
+      this.modals.close();
+    });
+  };
+
+
+  /**
+   * Открывает модальное окно редактирования структурного подразделения
+   */
+  openEditDivisionModal() {
+    this.modals.open('edit-division-modal');
+  };
+
+
+  /**
+   * Закрывает модальное окно редавтирования структурного подразделения
+   * @param form {ngForm} - форма редактирования структурного подразделения
+   */
+  closeEditDivisionModal(form: any): void {
+    form.reset({
+      title: this.selectedDivision._model.backup.data.title
+    });
+  };
+
+
+  editDivision(): void {
+    this.phonebook.editDivision(this.selectedDivision).subscribe((division: Division) => {
+      console.log(division);
+      let tree = this.trees.getById('phonebook-divisions-tree');
+      let item = tree.getItemByKey(division.id.toString());
+      item.title = this.selectedDivision.title;
+      this.selectedDivision._model.backup.setup(['parentId', 'title']);
       this.modals.close();
     });
   };

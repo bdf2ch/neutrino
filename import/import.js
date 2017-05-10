@@ -2,7 +2,7 @@ var pg = require('pg');
 var async = require('async');
 
 if(typeof require !== 'undefined') XLSX = require('xlsx');
-var workbook = XLSX.readFile('rdu.xls');
+var workbook = XLSX.readFile('MRSK.xls');
 
 var first_sheet_name = workbook.SheetNames[0];
 var address_of_cell = 'A1';
@@ -29,7 +29,7 @@ pool.on('error', function (err, client) {
 var contacts = [];
 
 
-for (var i = 1; i < 114; i++) {
+for (var i = 1; i < 370; i++) {
   var contact = {
     divisionId: parseInt(worksheet['F' + i].w),
     surname: worksheet['A' + i].w.trim().split(' ')[0],

@@ -64,11 +64,20 @@ html, body {
 /**
 * Grid
 **/
+.row {
+  overflow: auto;
+  display: block;
+  box-sizing: border-box;
+}
 .width-5 {
+  float: left;
   width: 5%;
+  box-sizing: border-box;
 }
 .width-10 {
+  float: left;
   width: 10%;
+  box-sizing: border-box;
 }
 .width-50 {
   float: left;
@@ -293,7 +302,7 @@ input[type="text"] {
 /**
 * Buttons
 **/
-button {
+button, input[type='button'], input[type='submit'] {
   height: @input-height-regular;
   padding: 10px;
   box-sizing: border-box;

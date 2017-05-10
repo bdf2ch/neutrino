@@ -52,6 +52,7 @@ app
         case 'searchUsers': query = users.searchUsers(request.body.data); break;
         case 'getAllPhoneBookDivisions': query = phonebook.getAllDivisions(); break;
         case 'addPhoneBookDivision': query = phonebook.addDivision(request.body.data); break;
+        case 'editPhoneBookDivision': query = phonebook.editDivision(request.body.data); break;
       }
 
       client.query({text: query['text'], values: query['values'] ? query['values'] : []}, function(err, result) {
