@@ -1,0 +1,35 @@
+<div id="app-content-wrapper-header">
+  <div class="ats app-content-title">
+      <span class="title padding-left-20">АТС</span>
+      <span class="separator right"></span>
+      <i class="fa fa-plus control right" title="Добавить АТС" (click)="openNewDivisionModal()"></i>
+      <i class="fa fa-pencil control right" title="Редактировать выбранную АТС" *ngIf="selectedAts !== null" (click)="openEditDivisionModal()"></i>
+  </div>
+  <div class="ats-codes app-content-title">
+      <span class="title padding-left-20">Коды выходов</span>
+      <i class="fa fa-plus control right" title="Добавить структурное подразделение" (click)="openNewDivisionModal()"></i>
+      <i class="fa fa-pencil control right" title="Редактировать структурное подразделение" (click)="openEditDivisionModal()"></i>
+  </div>
+</div>
+<div class="ats app-content-wrapper-content padding-10">
+  <tree id="phonebook-ats-tree"
+        [expandOnSelect]="true"
+        [collapseOnDeselect]="true"
+        (onSelect)="selectAts($event)">
+  </tree>
+
+  <div class="no-content center" *ngIf="phonebook.getAllAts().length === 0">
+    <div class="wrapper">
+      <i class="fa fa-ban"></i>
+      <span class="title">АТС отсутствуют</span>
+    </div>
+  </div>
+</div>
+<div class="ats-codes app-content-wrapper-content darker padding-10">
+  <div class="no-content center" *ngIf="selectedAts === null">
+    <div class="wrapper">
+      <i class="fa fa-phone-square"></i>
+      <span class="title">Выберите АТС</span>
+    </div>
+  </div>
+</div>

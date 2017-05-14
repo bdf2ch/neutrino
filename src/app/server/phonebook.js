@@ -22,6 +22,14 @@ var phonebook = {
       values: [parameters['id'], parameters['parentId'], parameters['title']],
       func: 'edit_phonebook_division'
     }
+  },
+
+  getAllAts: function () {
+    return {
+      text: 'select get_ats()',
+      values: [],
+      func: 'get_ats'
+    }
   }
 
 };

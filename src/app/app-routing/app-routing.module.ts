@@ -10,6 +10,8 @@ import { DashboardComponent } from "../neutrino/dashboard/dashboard.component";
 import { UserResolveGuardService } from "../neutrino/users/edit-user/resolve-guard.service";
 import { EditUserComponent } from "../neutrino/users/edit-user/edit-user.component";
 import { PhonebookDivisionsComponent } from "../neutrino/phonebook/divisions/divisions.component";
+import { AtsComponent } from "../neutrino/phonebook/ats/ats.component";
+import { PhonebookComponent } from "../neutrino/phonebook/phonebook/phonebook.component";
 
 
 const routes: Routes = [
@@ -41,8 +43,26 @@ const routes: Routes = [
         }
       },
       {
+        path: 'phonebook',
+        component: PhonebookComponent,
+        children: [
+          {
+            path: 'divisions',
+            component: PhonebookDivisionsComponent
+          },
+          {
+            path: 'ats',
+            component: AtsComponent
+          }
+        ]
+      },
+      {
         path: 'phonebook/divisions',
         component: PhonebookDivisionsComponent
+      },
+      {
+        path: 'phonebook/ats',
+        component: AtsComponent
       },
       {
         path: '**',
