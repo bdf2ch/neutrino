@@ -5,13 +5,13 @@ import { AppComponent } from "../app.component";
 import { AppResolveGuardService } from "../app-resolve-guard.service";
 import { NeutrinoComponent } from "../neutrino/neutrino/neutrino.component";
 import { NeutrinoModule } from "../neutrino/neutrino.module";
-import { UserListComponent } from "../neutrino/users/user-list/user-list.component";
-import { DashboardComponent } from "../neutrino/dashboard/dashboard.component";
-import { UserResolveGuardService } from "../neutrino/users/edit-user/resolve-guard.service";
-import { EditUserComponent } from "../neutrino/users/edit-user/edit-user.component";
-import { PhonebookDivisionsComponent } from "../neutrino/phonebook/divisions/divisions.component";
-import { AtsComponent } from "../neutrino/phonebook/ats/ats.component";
-import { PhonebookComponent } from "../neutrino/phonebook/phonebook/phonebook.component";
+import { UserListComponent } from "../users/user-list/user-list.component";
+import { DashboardComponent } from "../dashboard/dashboard.component";
+import { UserResolveGuardService } from "../users/edit-user/resolve-guard.service";
+import { EditUserComponent } from "../users/edit-user/edit-user.component";
+import { PhonebookDivisionsComponent } from "../phonebook/divisions/divisions.component";
+import { AtsComponent } from "../phonebook/ats/ats.component";
+import { PhonebookComponent } from "../phonebook/phonebook/phonebook.component";
 
 
 const routes: Routes = [

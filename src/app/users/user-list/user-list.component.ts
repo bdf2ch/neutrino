@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRouteSnapshot, Router } from "@angular/router";
-import { User } from "../../../models/user";
-import { UserManagerService } from "../../user-manager.service";
+import { User } from "../../models/user";
+import { UserManagerService } from "../../neutrino/user-manager.service";
 
 @Component({
   selector: 'app-user-list',

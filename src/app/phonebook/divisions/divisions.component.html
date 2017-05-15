@@ -1,13 +1,11 @@
 <div id="app-content-wrapper-header">
-  <div id="app-content-title">
-    <span class="title">Структурные подразделения</span>
-    <span class="separator"></span>
+  <div class="app-content-title width-100">
+    <span class="title padding-left-20">Структурные подразделения</span>
+    <i class="fa fa-plus control right" title="Добавить структурное подразделение" (click)="openNewDivisionModal()"></i>
+    <i class="fa fa-pencil control right" title="Редактировать структурное подразделение" *ngIf="selectedDivision !== null" (click)="openEditDivisionModal()"></i>
   </div>
-
-  <i class="fa fa-plus control" title="Добавить структурное подразделение" (click)="openNewDivisionModal()"></i>
-  <i class="fa fa-pencil control" title="Редактировать структурное подразделение" *ngIf="selectedDivision !== null" (click)="openEditDivisionModal()"></i>
 </div>
-<div id="app-content-wrapper-content" class="padding-10">
+<div class="app-content-wrapper-content width-100 padding-10">
   <tree id="phonebook-divisions-tree"
         [expandOnSelect]="true"
         [collapseOnDeselect]="true"

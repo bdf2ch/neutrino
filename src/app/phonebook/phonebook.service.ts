@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
-import { Division } from "../../models/division";
-import { Ats } from "../../models/ats";
+import { Division } from "../models/division";
+import { Ats } from "../models/ats";
 import { Observable } from "rxjs/Observable";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/take';

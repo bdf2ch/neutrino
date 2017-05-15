@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 import { Observable } from "rxjs";
-import { UserManagerService } from "../../user-manager.service";
-import { User } from "../../../models/user";
+import { UserManagerService } from "../../neutrino/user-manager.service";
+import { User } from "../../models/user";
 
 @Injectable()
 export class UserListResolveGuardService implements Resolve<User[]>{

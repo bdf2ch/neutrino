@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Ats } from "../../../models/ats";
+import { Ats } from "../../models/ats";
 import { PhonebookService } from "../phonebook.service";
 import { TreeService } from '@bdf2ch/angular-ui-kit';
 import { TreeItem } from '@bdf2ch/angular-ui-kit';

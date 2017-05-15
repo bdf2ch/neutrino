@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PhonebookService } from "../phonebook.service";
 import { TreeService } from '@bdf2ch/angular-ui-kit';
-import { Division } from "../../../models/division";
+import { Division } from "../../models/division";
 import { TreeItem } from '@bdf2ch/angular-ui-kit';
 import { ModalService } from '@bdf2ch/angular-ui-kit';
 
